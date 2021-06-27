@@ -1,4 +1,5 @@
-import { User } from "../entities/User";
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { User } from '../entities/User';
 
 export class ProfileMap {
   static toDTO({ id, name, email, created_at, updated_at }: User) {
@@ -7,7 +8,7 @@ export class ProfileMap {
       name,
       email,
       created_at,
-      updated_at
-    }
+      updated_at,
+    };
   }
 }

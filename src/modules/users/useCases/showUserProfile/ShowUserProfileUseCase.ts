@@ -1,7 +1,8 @@
-import { injectable, inject } from "tsyringe";
+import { injectable, inject } from 'tsyringe';
 
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { ShowUserProfileError } from "./ShowUserProfileError";
+import { User } from '../../entities/User';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
+import { ShowUserProfileError } from './ShowUserProfileError';
 
 @injectable()
 export class ShowUserProfileUseCase {
@@ -10,7 +11,7 @@ export class ShowUserProfileUseCase {
     private usersRepository: IUsersRepository,
   ) {}
 
-  async execute(user_id: string) {
+  async execute(user_id: string): Promise<User> {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {
